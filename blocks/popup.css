@@ -7,6 +7,10 @@
   z-index: 9999;
 }
 
+.popup_visible {
+  display: none;
+}
+
 .popup__content {
   position: relative;
   z-index: 1;
