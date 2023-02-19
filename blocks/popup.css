@@ -1,0 +1,117 @@
+.popup__profile-editing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.popup__content {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  max-width: 368px;
+  border-radius: 10px;
+  margin: 195px auto;
+  display: block;
+  padding: 34px 36px 36px;
+}
+
+.popup__background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.popup__close-button {
+  background-image: url(../images/Close-Icon.svg);
+  color: #fff;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  top: -45px;
+  right: -50px;
+}
+
+.popup__close-button:hover {
+  opacity: 0.5;
+}
+
+.popup__title {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #000;
+  margin: 0;
+  margin-bottom: 36px;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__input {
+  margin-bottom: 16px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 3;
+}
+
+.popup__submit-button {
+  width: 358px;
+  height: 50px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2px;
+  padding: 0;
+  border: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  cursor: pointer;
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 520px) {
+  .popup__content {
+    margin-top: 123px;
+    max-width: 238px;
+    padding: 25px 22px;
+  }
+
+  .popup__close-button {
+    right: 0px;
+    top: -50px;
+    width: 26px;
+    height: 26px;
+    background-size: contain;
+  }
+
+  .popup__submit-button {
+    width: 238px;
+    margin-top: 36px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+    margin-bottom: 76px;
+  }
+}

@@ -115,5 +115,29 @@
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
     </div>
+
+    <div class="popup popup__profile-editing">
+      <div class="popup popup__content">
+        <button type="button" class="popup__close-button"></button>
+        <h3 class="popup__title">Edit profile</h3>
+        <form class="popup__form" name="profile-editing">
+          <input
+            type="text"
+            name="name"
+            class="popup__input popup__input_type_name"
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            name="title"
+            class="popup__input popup__input_type_title"
+            placeholder="Title"
+          />
+          <button type="submit" class="popup__submit-button">Save</button>
+        </form>
+      </div>
+      <div class="popup popup__background"></div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
