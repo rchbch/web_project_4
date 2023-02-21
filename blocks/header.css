@@ -4,14 +4,14 @@
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 519px) {
   .header {
     max-width: 320px;
     margin: 28px auto 42px;
   }
 }
 
-@media screen and (min-width: 521px) and (max-width: 879px) {
+@media screen and (min-width: 520px) and (max-width: 880px) {
   .header {
     padding: 0 10px;
   }
