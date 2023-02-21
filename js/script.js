@@ -13,11 +13,11 @@ function fillProfileForm() {
 
 function openProfileForm() {
   fillProfileForm();
-  editPopup.classList.remove("popup_visible");
+  editPopup.classList.remove("popup_hidden");
 }
 
 function closeProfileForm() {
-  editPopup.classList.add("popup_visible");
+  editPopup.classList.add("popup_hidden");
 }
 
 editProfileButton.addEventListener("click", openProfileForm);
@@ -29,7 +29,7 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileTitle.textContent = inputTitle.value;
-  editPopup.classList.add("popup_visible");
+  editPopup.classList.add("popup_hidden");
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
