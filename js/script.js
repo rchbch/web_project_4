@@ -68,6 +68,7 @@ function createCard(cardData) {
 
   title.textContent = cardData.name;
   image.src = cardData.link;
+  image.alt = cardData.name;
 
   removeButton.addEventListener("click", (event) => {
     feedItem.remove();
@@ -79,6 +80,7 @@ function createCard(cardData) {
     galleryImagePopup.classList.remove("popup_hidden");
     imageCaption.textContent = cardData.name;
     popupImage.src = cardData.link;
+    popupImage.alt = cardData.name;
   });
 
   galleryImagePopupCloseButton.addEventListener("click", () => {
