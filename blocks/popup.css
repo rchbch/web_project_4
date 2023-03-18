@@ -1,14 +1,18 @@
-.popup__profile-editing {
+.popup {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
 }
 
 .popup_hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .popup__content {
@@ -89,6 +93,42 @@
   line-height: 1.22;
   cursor: pointer;
   margin-top: 32px;
+}
+
+.popup__submit-button:hover {
+  opacity: 0.5;
+}
+
+.popup__gallery-image {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.popup__image-content {
+  position: relative;
+  z-index: 1;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.popup__figure {
+  margin: 0;
+}
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+}
+
+.popup__caption {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #fff;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 520px) {
