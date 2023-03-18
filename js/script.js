@@ -30,9 +30,9 @@ const templateFeedItem = document
   .content.querySelector(".feed-item");
 const feedList = document.querySelector(".feed-list");
 
-const editPopup = document.querySelector(".popup__type_profile-editing");
-const addCardPopup = document.querySelector(".popup__type_add-feeditem");
-const galleryImagePopup = document.querySelector(".popup__type_gallery-image");
+const editPopup = document.querySelector(".popup__type_editing");
+const addCardPopup = document.querySelector(".popup__type_addfeeditem");
+const galleryImagePopup = document.querySelector(".popup__type_gallery");
 
 const editPopupCloseButton = editPopup.querySelector(".popup__close-button");
 const addCardPopupCloseButton = addCardPopup.querySelector(
