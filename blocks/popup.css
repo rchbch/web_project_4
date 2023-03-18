@@ -99,7 +99,7 @@
   opacity: 0.5;
 }
 
-.popup__type_gallery {
+.popup_type_gallery {
   display: flex;
   justify-content: space-around;
   align-items: center;
