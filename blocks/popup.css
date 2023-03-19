@@ -5,14 +5,14 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
   transition: visibility 0s, opacity 0.3s linear;
 }
 
-.popup_hidden {
-  visibility: hidden;
-  opacity: 0;
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
 }
 
 .popup__content {

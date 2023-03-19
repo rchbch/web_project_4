@@ -34,13 +34,7 @@ const editPopup = document.querySelector(".popup_type_profile-editing");
 const addCardPopup = document.querySelector(".popup_type_add-feed-item");
 const galleryImagePopup = document.querySelector(".popup_type_gallery");
 
-const editPopupCloseButton = editPopup.querySelector(".popup__close-button");
-const addCardPopupCloseButton = addCardPopup.querySelector(
-  ".popup__close-button"
-);
-const galleryImagePopupCloseButton = galleryImagePopup.querySelector(
-  ".popup__close-button"
-);
+const closeButtons = document.querySelectorAll(".popup__close-button");
 
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
@@ -56,15 +50,15 @@ const profileTitle = document.querySelector(".profile__title");
 const editProfileForm = editPopup.querySelector(".popup__form");
 const addCardForm = addCardPopup.querySelector(".popup__form");
 
-function createCard(cardData) {
-  const feedItem = templateFeedItem.cloneNode(true);
+const popupImage = galleryImagePopup.querySelector(".popup__image");
+const imageCaption = galleryImagePopup.querySelector(".popup__caption");
 
+function getCard(cardData) {
+  const feedItem = templateFeedItem.cloneNode(true);
   const title = feedItem.querySelector(".feed-item__name");
   const image = feedItem.querySelector(".feed-item__image");
   const removeButton = feedItem.querySelector(".feed-item__remove-button");
   const likeButton = feedItem.querySelector(".feed-item__like-button");
-  const popupImage = galleryImagePopup.querySelector(".popup__image");
-  const imageCaption = galleryImagePopup.querySelector(".popup__caption");
 
   title.textContent = cardData.name;
   image.src = cardData.link;
@@ -77,16 +71,17 @@ function createCard(cardData) {
     likeButton.classList.toggle("feed-item__like-button_filled");
   });
   image.addEventListener("click", (event) => {
-    galleryImagePopup.classList.remove("popup_hidden");
+    openPopup(galleryImagePopup);
     imageCaption.textContent = cardData.name;
     popupImage.src = cardData.link;
     popupImage.alt = cardData.name;
   });
 
-  galleryImagePopupCloseButton.addEventListener("click", () => {
-    galleryImagePopup.classList.add("popup_hidden");
-  });
+  return feedItem;
+}
 
+function createCard(cardData) {
+  const feedItem = getCard(cardData);
   feedList.prepend(feedItem);
 }
 
@@ -97,33 +92,38 @@ function fillProfileForm() {
   inputTitle.value = profileTitle.textContent;
 }
 
-editProfileButton.addEventListener("click", () => {
-  fillProfileForm();
-  editPopup.classList.remove("popup_hidden");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
 });
 
-editPopupCloseButton.addEventListener("click", () => {
-  editPopup.classList.add("popup_hidden");
+editProfileButton.addEventListener("click", () => {
+  fillProfileForm();
+  openPopup(editPopup);
 });
 
 addCardButton.addEventListener("click", () => {
-  addCardForm.reset();
-  addCardPopup.classList.remove("popup_hidden");
-});
-
-addCardPopupCloseButton.addEventListener("click", () => {
-  addCardPopup.classList.add("popup_hidden");
+  openPopup(addCardPopup);
 });
 
 editProfileForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileTitle.textContent = inputTitle.value;
-  editPopup.classList.add("popup_hidden");
+  closePopup(editPopup);
 });
 
 addCardForm.addEventListener("submit", (event) => {
   event.preventDefault();
   createCard({ name: inputCardTitle.value, link: inputImageUrl.value });
-  addCardPopup.classList.add("popup_hidden");
+  closePopup(addCardPopup);
+  addCardForm.reset();
 });
