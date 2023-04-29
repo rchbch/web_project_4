@@ -35,6 +35,7 @@ const addCardPopup = document.querySelector(".popup_type_add-feed-item");
 const galleryImagePopup = document.querySelector(".popup_type_gallery");
 
 const closeButtons = document.querySelectorAll(".popup__close-button");
+const closeOverlay = document.querySelectorAll(".popup__background");
 
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
@@ -105,13 +106,20 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closePopup(popup));
 });
 
+closeOverlay.forEach((background) => {
+  const popup = background.closest(".popup");
+  background.addEventListener("click", () => closePopup(popup));
+});
+
 editProfileButton.addEventListener("click", () => {
   fillProfileForm();
   openPopup(editPopup);
+  initialValidationCheck(editProfileForm, config);
 });
 
 addCardButton.addEventListener("click", () => {
   openPopup(addCardPopup);
+  initialValidationCheck(addCardForm, config);
 });
 
 editProfileForm.addEventListener("submit", (event) => {
@@ -126,4 +134,11 @@ addCardForm.addEventListener("submit", (event) => {
   createCard({ name: inputCardTitle.value, link: inputImageUrl.value });
   closePopup(addCardPopup);
   addCardForm.reset();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const popup = document.querySelector(".popup_opened");
+    closePopup(popup);
+  }
 });

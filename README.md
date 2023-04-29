@@ -1,4 +1,4 @@
-# Project 4: Around The U.S.
+# Project 6: Around The U.S.
 
 ### Overview
 
@@ -24,7 +24,7 @@ Interactive page where users can add and remove photos, like photos of other use
 
 **A description of the technologies and techniques used**
 
-Adaptive Layouts, BEM
+Adaptive Layouts, BEM, Form Validation
 
 **Pictures, GIFs, or screenshots that detail the project features**
 
