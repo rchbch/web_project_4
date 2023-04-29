@@ -42,7 +42,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 
 const inputName = document.querySelector(".popup__input_type_name");
 const inputTitle = document.querySelector(".popup__input_type_title");
-const inputCardTitle = document.querySelector(".popup__input_type_cardtitle");
+const inputCardTitle = document.querySelector(".popup__input_type_card-title");
 const inputImageUrl = document.querySelector(".popup__input_type_image-url");
 
 const profileName = document.querySelector(".profile__name");
@@ -139,6 +139,8 @@ addCardForm.addEventListener("submit", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     const popup = document.querySelector(".popup_opened");
-    closePopup(popup);
+    if (popup) {
+      closePopup(popup);
+    }
   }
 });
