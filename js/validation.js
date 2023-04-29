@@ -10,7 +10,9 @@ const config = {
 function showInputError(input, settings) {
   const { inputErrorClass, errorClass } = settings;
   const errorMessage = input.validationMessage;
-  const errorElement = document.querySelector(`.${input.id}-error`);
+  const errorElement = document.querySelector(
+    `.popup__input-error_type_${input.name}`
+  );
   input.classList.add(inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(errorClass);
@@ -18,7 +20,9 @@ function showInputError(input, settings) {
 
 function hideInputError(input, settings) {
   const { inputErrorClass, errorClass } = settings;
-  const errorElement = document.querySelector(`.${input.id}-error`);
+  const errorElement = document.querySelector(
+    `.popup__input-error_type_${input.name}`
+  );
   input.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
   errorElement.textContent = "";

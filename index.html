@@ -50,25 +50,23 @@
           <input
             type="text"
             name="name"
-            id="popup__input_type_name"
             class="popup__input popup__input_type_name"
             placeholder="Name"
             minlength="2"
             maxlength="40"
             required
           />
-          <span class="popup__input-error popup__input_type_name-error"></span>
+          <span class="popup__input-error popup__input-error_type_name"></span>
           <input
             type="text"
             name="title"
-            id="popup__input_type_title"
             class="popup__input popup__input_type_title"
             placeholder="Title"
             minlength="2"
             maxlength="200"
             required
           />
-          <span class="popup__input-error popup__input_type_title-error"></span>
+          <span class="popup__input-error popup__input-error_type_title"></span>
           <button type="submit" class="popup__submit-button">Save</button>
         </form>
       </div>
@@ -82,27 +80,25 @@
         <form class="popup__form" name="addFeedItem">
           <input
             type="text"
-            name="cardTitle"
-            id="popup__input_type_cardtitle"
-            class="popup__input popup__input_type_cardtitle"
+            name="card-title"
+            class="popup__input popup__input_type_card-title"
             placeholder="Title"
             minlength="1"
             maxlength="30"
             required
           />
           <span
-            class="popup__input-error popup__input_type_cardtitle-error"
+            class="popup__input-error popup__input-error_type_card-title"
           ></span>
           <input
             type="url"
-            name="imageUrl"
-            id="popup__input_type_image-url"
+            name="image-url"
             class="popup__input popup__input_type_image-url"
             placeholder="Image URL"
             required
           />
           <span
-            class="popup__input-error popup__input_type_image-url-error"
+            class="popup__input-error popup__input-error_type_image-url"
           ></span>
           <button type="submit" class="popup__submit-button">Save</button>
         </form>
