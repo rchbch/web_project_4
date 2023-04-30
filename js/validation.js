@@ -76,8 +76,8 @@ function initialValidationCheck(form, settings) {
   const { inputSelector, submitButtonSelector } = settings;
   const inputs = Array.from(form.querySelectorAll(inputSelector));
   const buttonElement = form.querySelector(submitButtonSelector);
+  toggleButtonState(inputs, buttonElement, settings);
   inputs.forEach((input) => {
     hideInputError(input, settings);
-    toggleButtonState(inputs, buttonElement, settings);
   });
 }

@@ -33,10 +33,10 @@ const feedList = document.querySelector(".feed-list");
 const editPopup = document.querySelector(".popup_type_profile-editing");
 const addCardPopup = document.querySelector(".popup_type_add-feed-item");
 const galleryImagePopup = document.querySelector(".popup_type_gallery");
-
+/*
 const closeButtons = document.querySelectorAll(".popup__close-button");
-const closeOverlay = document.querySelectorAll(".popup__background");
-
+const closeOverlays = document.querySelectorAll(".popup__background");
+*/
 const editProfileButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 
@@ -95,20 +95,35 @@ function fillProfileForm() {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeByEscape);
 }
-
+/*
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => closePopup(popup));
 });
 
-closeOverlay.forEach((background) => {
+closeOverlays.forEach((background) => {
   const popup = background.closest(".popup");
   background.addEventListener("click", () => closePopup(popup));
+});
+*/
+const popups = document.querySelectorAll(".popup");
+
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("popup__background")) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains("popup__close-button")) {
+      closePopup(popup);
+    }
+  });
 });
 
 editProfileButton.addEventListener("click", () => {
@@ -119,6 +134,7 @@ editProfileButton.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   openPopup(addCardPopup);
+  addCardForm.reset();
   initialValidationCheck(addCardForm, config);
 });
 
@@ -136,11 +152,11 @@ addCardForm.addEventListener("submit", (event) => {
   addCardForm.reset();
 });
 
-document.addEventListener("keydown", (event) => {
+function closeByEscape(event) {
   if (event.key === "Escape") {
     const popup = document.querySelector(".popup_opened");
     if (popup) {
       closePopup(popup);
     }
   }
-});
+}
